@@ -111,48 +111,60 @@ const positionSwitches = document.querySelectorAll(".position-switch")
 positionSwitches.forEach(button => {
     button.addEventListener("click", e => {
         selectedBox = boxes[findWhichBoxBelongsTo(e.target)]
-        console.log("hi")
-        console.log(e.target.innerText)
         selectedBox.style.position = e.target.innerText
     })
 })
 
-// Dropdown Event Listeners
-
-dropdowns.first
-    .querySelector(".dropdown-text-icon")
-    .addEventListener("click", () => {
-        selectBox("first")
+Object.values(dropdowns).forEach(dropdown => {
+    dropdown.addEventListener("click", () => {
+        if (
+            dropdown.getAttribute("data-belongs") !==
+            selectedBox.getAttribute("data-boxno")
+        ) {
+            selectBox(dropdown.getAttribute("data-belongs"))
+        } else {
+            if (dropdown.getAttribute("data-closed") === "false") {
+                closeDropdown(dropdown)
+            } else {
+                openDropdown(dropdown)
+            }
+        }
     })
+})
 
-dropdowns.second
-    .querySelector(".dropdown-text-icon")
-    .addEventListener("click", () => {
-        selectBox("second")
-    })
-
-dropdowns.third
-    .querySelector(".dropdown-text-icon")
-    .addEventListener("click", () => {
-        selectBox("third")
-    })
-
-function openAndCloseDropdown(dropdown) {
+function openDropdown(dropdown) {
     let dropdownContent = dropdown.querySelector(".dropdown-content")
-    let dstyle = getComputedStyle(dropdownContent)
-    let visibilityValue = dstyle.visibility
+    // let dstyle = getComputedStyle(dropdownContent)
+    // let visibilityValue = dstyle.visibility
+    dropdownContent.style.opacity = "1"
+    dropdownContent.style.visibility = "visible"
+    dropdown.style.marginBottom = "15em"
+    dropdown.setAttribute("data-closed", "false")
+}
 
-    if (visibilityValue === "hidden") {
-        dropdownContent.style.opacity = "1"
-        dropdownContent.style.visibility = "visible"
-        dropdown.style.marginBottom = "15em"
-    } else if (visibilityValue === "visible") {
-        dropdownContent.style.opacity = "0"
-        dropdownContent.style.visibility = "hidden"
-        dropdown.style.marginBottom = "0.6em"
-    } else {
-        console.log("Some unexpected shit has happened")
-    }
+function closeDropdown(dropdown) {
+    let dropdownContent = dropdown.querySelector(".dropdown-content")
+    dropdownContent.style.opacity = "0"
+    dropdownContent.style.visibility = "hidden"
+    dropdown.style.marginBottom = "0.6em"
+    dropdown.setAttribute("data-closed", "true")
+}
+
+function closeOtherDropdowns(dropdown) {
+    let opened = dropdown
+    let toClose = []
+    Object.values(dropdowns).forEach(droppy => {
+        if (droppy === opened) {
+            return
+        }
+        toClose.push(droppy)
+    })
+    toClose.forEach(closified => {
+        closeDropdown(closified)
+        boxes[closified.getAttribute("data-belongs")].classList.remove(
+            "selected"
+        )
+    })
 }
 
 // Boxes Event Listeners
@@ -160,18 +172,14 @@ boxes.first.addEventListener("click", selectFirst)
 boxes.second.addEventListener("click", selectSecond)
 boxes.third.addEventListener("click", selectThird)
 let selectedBox = boxes.first
-let previouslySelected = boxes.second
 
 selectBox("first")
 
 function selectBox(target) {
-    previouslySelected = selectedBox
     selectedBox = boxes[target]
     highlightSelectedBox()
-    openAndCloseDropdown(dropdowns[target])
-    openAndCloseDropdown(
-        dropdowns[previouslySelected.getAttribute("data-boxno")]
-    )
+    openDropdown(dropdowns[target])
+    closeOtherDropdowns(dropdowns[target])
 }
 
 highlightSelectedBox()
@@ -213,6 +221,5 @@ function selectThird() {
 }
 
 function highlightSelectedBox() {
-    previouslySelected.classList.remove("selected")
     selectedBox.classList.add("selected")
 }

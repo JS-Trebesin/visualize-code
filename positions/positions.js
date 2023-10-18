@@ -116,20 +116,22 @@ positionSwitches.forEach(button => {
 })
 
 Object.values(dropdowns).forEach(dropdown => {
-    dropdown.addEventListener("click", () => {
-        if (
-            dropdown.getAttribute("data-belongs") !==
-            selectedBox.getAttribute("data-boxno")
-        ) {
-            selectBox(dropdown.getAttribute("data-belongs"))
-        } else {
-            if (dropdown.getAttribute("data-closed") === "false") {
-                closeDropdown(dropdown)
+    dropdown
+        .querySelector(".dropdown-text-icon")
+        .addEventListener("click", () => {
+            if (
+                dropdown.getAttribute("data-belongs") !==
+                selectedBox.getAttribute("data-boxno")
+            ) {
+                selectBox(dropdown.getAttribute("data-belongs"))
             } else {
-                openDropdown(dropdown)
+                if (dropdown.getAttribute("data-closed") === "false") {
+                    closeDropdown(dropdown)
+                } else {
+                    openDropdown(dropdown)
+                }
             }
-        }
-    })
+        })
 })
 
 function openDropdown(dropdown) {

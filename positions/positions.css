@@ -1,0 +1,475 @@
+:root {
+    --first: #FAC898;
+    --second: #8bd3dd;
+    --third: #f582ae;
+    --outline-color-dark: #001858;
+    --outline-color-light: #34363b;
+    --selected-highlight: #00ebc7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background: #333;
+    box-sizing: border-box;
+    font-family: Roboto;
+    height: 100%;
+}
+
+
+.site-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.controls-container {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.monitor-container {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Monitor! */
+
+.monitor {
+    position: relative;
+    top: 20%;
+    border: 2em solid #111;
+    border-radius: 10px;
+    height: 30em;
+    aspect-ratio: 16/9;
+}
+
+.monitor::after {
+    content: "";
+    width: 25%;
+    aspect-ratio: 10/6;
+    background: black;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    translate: -50% 100%;
+    z-index: -1;
+}
+
+.monitor::before {
+    content: "";
+    width: 60%;
+    aspect-ratio: 10/0.7;
+    background: #111;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    translate: -50% 400%;
+    border-radius: 15px 15px 0% 0%;
+}
+
+
+
+.screen {
+    position: relative;
+    background: #fef6e4;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+
+}
+
+.box {
+    border: 2px solid var(--outline-color-dark);
+    height: 25%;
+    aspect-ratio: 1/1;
+    margin: 1em;
+    cursor: pointer;
+
+}
+
+#first-box {
+    background-color: var(--first);
+}
+
+#second-box {
+    background-color: var(--second);
+}
+
+#third-box {
+    background-color: var(--third);
+}
+
+.selected {
+    background-image: url("emoji.png") !important;
+    background-size: cover;
+    border: 3px solid var(--selected-highlight) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+
+/* Controls! */
+
+.controls {
+    border: 2px solid var(--outline-color-light);
+    background-color: #23262e;
+    width: 80%;
+    border-radius: 7px;
+    height: 70%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls::before {
+    content: "- □ x";
+    font-family: monospace !important;
+    color: #34363b;
+    color: white;
+    position: relative;
+    margin: 10px;
+    right: 2%;
+    margin-bottom: 1em;
+    align-self: flex-end;
+    font-size: 1.3em;
+}
+
+
+/* Positions */
+
+.select-container {
+    width: 50%;
+    margin-left: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--selected-highlight);
+    border-radius: 50px;
+}
+
+
+.position-label {
+    color: var(--outline-color-dark);
+    font-size: 1.2em;
+    margin: 0.7rem 0;
+}
+
+.select {
+    border: none;
+    /* appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; */
+    font-size: 1.2em;
+    /* background: transparent; */
+    background-color: inherit;
+    color: var(--outline-color-dark);
+    padding: 0.2em 0.8rem;
+    cursor: pointer;
+}
+
+
+
+#dropdown-first-box .select-container,
+#dropdown-first-box input:checked+label {
+    background-color: var(--first);
+}
+
+
+
+#dropdown-second-box .select-container,
+#dropdown-second-box input:checked+label {
+    background-color: var(--second);
+}
+
+#dropdown-third-box .select-container,
+#dropdown-third-box input:checked+label {
+    background-color: var(--third);
+}
+
+
+.select:focus {
+    outline: none;
+}
+
+
+
+/* for reset and margin buttons otherwise useless so needs rewrite */
+
+
+.position-switch {
+    display: inline-block;
+    border-radius: 50px;
+    width: 40%;
+    height: 25%;
+    appearance: none;
+
+    border: none;
+    outline: none;
+    margin: 3.5px;
+
+    font-size: 1.1em;
+
+    font-family: Roboto;
+    background-color: var(--selected-highlight);
+    color: var(--outline-color-dark);
+    font-weight: normal;
+}
+
+
+
+
+
+
+/* Left Top Right Bottom */
+
+
+.direction-buttons {
+    color: #EEE;
+    width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+.switch-field {
+    display: flex;
+    overflow: hidden;
+}
+
+
+
+
+
+.switch-field input,
+.input-direction {
+    position: absolute;
+
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+
+    /* text-align: center;
+    font-family: monospace;
+    font-size: 1.2em;
+    background-color: #23262e;
+    border-bottom: 1px solid #EEE;
+    color: #EEE; */
+}
+
+.switch-field label,
+.labels {
+    background-color: #fef6e4;
+    color: var(--outline-color-dark);
+    font-size: 1rem;
+    /* line-height: 1; */
+    text-align: center;
+    padding: 0.5rem 1rem;
+    margin-right: -1px;
+    border: 1px solid var(--outline-color-light);
+    border-radius: 50px;
+    transition: all 0.1s ease-in-out;
+    font-family: inherit;
+    font-weight: normal;
+}
+
+.switch-field label:hover {
+    cursor: pointer;
+}
+
+.switch-field input:checked+label {
+    background-color: var(--selected-highlight);
+    box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+    border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+    border-radius: 0 4px 4px 0;
+}
+
+
+
+.range-value {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    width: 4rem;
+
+    /* line-height: 60px; */
+    /* margin: 40px auto;
+    letter-spacing: -.07em; */
+    margin-left: 1.5rem;
+}
+
+/* TODO range shadow on the ball thingy */
+
+input[type="range"] {
+    display: block;
+    -webkit-appearance: none;
+    background-color: var(--selected-highlight);
+    width: 150px;
+    height: 5px;
+    border-radius: 5px;
+    margin: 1.2rem;
+    margin-top: 2.2rem;
+    outline: 0;
+    translate: 25% 0%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: var(--selected-highlight);
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 2px solid var(--selected-highlight);
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+
+
+.units-select {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 1.6rem;
+    /* background: transparent; */
+    background-color: transparent;
+    color: eeeeee;
+    padding: 0.2em 0.8rem;
+    cursor: pointer;
+
+}
+
+.units-select:focus {
+    outline: none;
+}
+
+#reset {
+    background-color: #d9376e;
+}
+
+.reset-button {
+    position: relative;
+    bottom: 1%;
+    display: none;
+}
+
+
+
+
+/* Dropdowns! */
+
+
+.dropdown-header {
+    border-radius: 50px;
+    border: 2px solid var(--outline-color-light);
+    width: 80%;
+    height: 4em;
+    margin: 0.6em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    user-select: none;
+    transition: margin-bottom 0.3s ease;
+    cursor: pointer;
+
+}
+
+.dropdown-text-icon {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+
+}
+
+.dropdown-header-text {
+    font-size: 1.2em;
+    position: relative;
+    display: inline-block;
+    left: 0%;
+    text-align: left;
+    color: var(--outline-color-dark);
+    width: 70%;
+    margin-left: 3em;
+}
+
+.svg-dropdown {
+    fill: var(--outline-color-dark);
+    height: 1.5em;
+    width: 10%;
+    position: relative;
+    right: -7%;
+}
+
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    justify-content: space-around;
+    align-items: center;
+    height: 15em;
+    width: 100%;
+    border-radius: 7px;
+    background-color: #23262e;
+    bottom: -10%;
+    left: 50%;
+    translate: -50% 100%;
+    user-select: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#dropdown-first-box {
+    background-color: var(--first);
+
+}
+
+
+
+
+#dropdown-second-box {
+    background-color: var(--second);
+
+
+
+}
+
+#dropdown-third-box {
+    background-color: var(--third);
+
+
+}

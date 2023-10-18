@@ -1,0 +1,268 @@
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="positions.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+<body>
+    <div class="site-wrapper">
+        <div class="controls-container">
+            <div class="controls">
+                <div class="dropdown-header" id="dropdown-first-box" data-belongs="first">
+                    <div class="dropdown-text-icon">
+                        <span class="dropdown-header-text">Nastavení prvního divu</span>
+                        <svg class="svg-dropdown" fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330 330" xml:space="preserve">
+                            <path id="XMLID_225_"
+                                d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
+                                        	c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
+                                        	s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" />
+                        </svg>
+                    </div>
+
+                    <div class="dropdown-content">
+                        <div class="select-container">
+                            <label for="position-select-one" class="position-label">position: </label>
+                            <select name="positions" id="position-select-one" class="select">
+                                <option value="static" selected>static</option>
+                                <option value="relative">relative</option>
+                                <option value="absolute">absolute</option>
+                                <option value="fixed">fixed</option>
+                                <option value="sticky">sticky</option>
+                            </select>
+                        </div>
+
+
+                        <div class="direction-buttons">
+
+
+                            <div class="left-right">
+                                <div class="switch-field">
+                                    <input type="radio" id="left1" class="input-direction" name="left-right-one"
+                                        placeholder="auto" value="Left" checked><label for="left1" class="labels"
+                                        checked>Left</label>
+                                    <input type="radio" id="right1" class="input-direction" name="left-right-one"
+                                        placeholder=" auto" value="Right">
+                                    <label for="right1" class="labels">Right</label>
+                                    <div class="range-value" id="range-value-leftright-one">0</div>
+                                    <select name="units" id="units-select-leftright-one" class="units-select">
+                                        <option value="percent" selected>%</option>
+                                        <option value="px">px</option>
+                                        <option value="rem">rem</option>
+                                        <option value="em">em</option>
+                                        <option value="vw">vw</option>
+                                    </select>
+
+                                </div>
+                                <div class="range">
+                                    <input type="range" min="-200" max="200" step="1" value="0" id="range-for-lr-one">
+                                </div>
+                            </div>
+
+                            <div class="top-bot">
+                                <div class="switch-field">
+                                    <input type="radio" id="top1" class="input-direction" name="top-bot-one"
+                                        placeholder="auto" value="Top" checked><label for="top1" class="labels"
+                                        checked>Top</label>
+                                    <input type="radio" id="bot1" class="input-direction" name="top-bot-one"
+                                        placeholder="auto" value="Bottom">
+                                    <label for="bot1" class="labels">Bottom</label>
+                                    <div class="range-value" id="range-value-topbot-one">0</div>
+                                    <select name="units" id="units-select-topbot-one" class="units-select">
+                                        <option value="percent" selected>%</option>
+                                        <option value="px">px</option>
+                                        <option value="rem">rem</option>
+                                        <option value="em">em</option>
+                                        <option value="vh">vh</option>
+                                    </select>
+
+                                </div>
+                                <div class="range">
+                                    <input type="range" min="-200" max="200" step="1" value="0" id="range-for-tb-one">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-header" id="dropdown-second-box" data-belongs="second">
+                    <div class="dropdown-text-icon">
+                        <span class="dropdown-header-text">Nastavení druhého divu</span>
+                        <svg class="svg-dropdown" fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330 330" xml:space="preserve">
+                            <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
+                    	c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
+                    	s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" />
+                        </svg>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="select-container">
+                            <label for="position-select-two" class="position-label">position: </label>
+                            <select name="positions" id="position-select-two" class="select">
+                                <option value="static" selected>static</option>
+                                <option value="relative">relative</option>
+                                <option value="absolute">absolute</option>
+                                <option value="fixed">fixed</option>
+                                <option value="sticky">sticky</option>
+                            </select>
+                        </div>
+
+
+                        <div class="direction-buttons">
+
+
+                            <div class="left-right">
+                                <div class="switch-field">
+                                    <input type="radio" id="left2" class="input-direction" name="left-right-two"
+                                        placeholder="auto" value="Left" checked><label for="left2" class="labels"
+                                        checked>Left</label>
+                                    <input type="radio" id="right2" class="input-direction" name="left-right-two"
+                                        placeholder=" auto" value="Right">
+                                    <label for="right2" class="labels">Right</label>
+                                    <div class="range-value" id="range-value-leftright-two">0</div>
+                                    <select name="units" id="units-select-leftright-two" class="units-select">
+                                        <option value="percent" selected>%</option>
+                                        <option value="px">px</option>
+                                        <option value="rem">rem</option>
+                                        <option value="em">em</option>
+                                        <option value="vw">vw</option>
+                                    </select>
+
+                                </div>
+                                <div class="range">
+                                    <input type="range" min="-200" max="200" step="1" value="0" id="range-for-lr-two">
+                                </div>
+                            </div>
+
+                            <div class="top-bot">
+                                <div class="switch-field">
+                                    <input type="radio" id="top2" class="input-direction" name="top-bot-two"
+                                        placeholder="auto" value="Top" checked><label for="top2" class="labels"
+                                        checked>Top</label>
+                                    <input type="radio" id="bot2" class="input-direction" name="top-bot-two"
+                                        placeholder="auto" value="Bottom">
+                                    <label for="bot2" class="labels">Bottom</label>
+                                    <div class="range-value" id="range-value-topbot-two">0</div>
+                                    <select name="units" id="units-select-topbot-two" class="units-select">
+                                        <option value="percent" selected>%</option>
+                                        <option value="px">px</option>
+                                        <option value="rem">rem</option>
+                                        <option value="em">em</option>
+                                        <option value="vh">vh</option>
+                                    </select>
+
+                                </div>
+                                <div class="range">
+                                    <input type="range" min="-200" max="200" step="1" value="0" id="range-for-tb-two">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="dropdown-header" id="dropdown-third-box" data-belongs="third">
+                    <div class="dropdown-text-icon">
+                        <span class="dropdown-header-text">Nastavení třetího divu</span>
+                        <svg class="svg-dropdown" fill="#000000" height="800px" width="800px" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 330 330" xml:space="preserve">
+                            <path id="XMLID_225_"
+                                d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
+                                        	c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
+                                        	s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" />
+                        </svg>
+                    </div>
+                    <div class="dropdown-content">
+                        <div class="select-container">
+                            <label for="position-select-three" class="position-label">position: </label>
+                            <select name="positions" id="position-select-three" class="select">
+                                <option value="static" selected>static</option>
+                                <option value="relative">relative</option>
+                                <option value="absolute">absolute</option>
+                                <option value="fixed">fixed</option>
+                                <option value="sticky">sticky</option>
+                            </select>
+                        </div>
+
+
+                        <div class="direction-buttons">
+
+
+                            <div class="left-right">
+                                <div class="switch-field">
+                                    <input type="radio" id="left3" class="input-direction" name="left-right-three"
+                                        placeholder="auto" value="Left" checked><label for="left3" class="labels"
+                                        checked>Left</label>
+                                    <input type="radio" id="right3" class="input-direction" name="left-right-three"
+                                        placeholder=" auto" value="Right">
+                                    <label for="right3" class="labels">Right</label>
+                                    <div class="range-value" id="range-value-leftright-three">0</div>
+                                    <select name="units" id="units-select-leftright-three" class="units-select">
+                                        <option value="percent" selected>%</option>
+                                        <option value="px">px</option>
+                                        <option value="rem">rem</option>
+                                        <option value="em">em</option>
+                                        <option value="vw">vw</option>
+                                    </select>
+
+                                </div>
+                                <div class="range">
+                                    <input type="range" min="-200" max="200" step="1" value="0" id="range-for-lr-three">
+                                </div>
+                            </div>
+
+                            <div class="top-bot">
+                                <div class="switch-field">
+                                    <input type="radio" id="top3" class="input-direction" name="top-bot-three"
+                                        placeholder="auto" value="Top" checked><label for="top3" class="labels"
+                                        checked>Top</label>
+                                    <input type="radio" id="bot3" class="input-direction" name="top-bot-three"
+                                        placeholder="auto" value="Bottom">
+                                    <label for="bot3" class="labels">Bottom</label>
+                                    <div class="range-value" id="range-value-topbot-three">0</div>
+                                    <select name="units" id="units-select-topbot-three" class="units-select">
+                                        <option value="percent" selected>%</option>
+                                        <option value="px">px</option>
+                                        <option value="rem">rem</option>
+                                        <option value="em">em</option>
+                                        <option value="vh">vh</option>
+                                    </select>
+
+                                </div>
+                                <div class="range">
+                                    <input type="range" min="-200" max="200" step="1" value="0" id="range-for-tb-three">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reset-button">
+                    <button id="marginOnOff" class="position-switch">Margin ON</button>
+                    <button id="reset" class="position-switch">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="monitor-container">
+            <div class="monitor">
+                <div class="screen">
+                    <div class="box" id="first-box" data-boxno="first"></div>
+                    <div class="box" id="second-box" data-boxno="second"></div>
+                    <div class="box" id="third-box" data-boxno="third"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="positions.js"></script>
+</body>
+
+</html>

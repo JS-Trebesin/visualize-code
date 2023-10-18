@@ -1,0 +1,78 @@
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ivb.css">
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <div class="controls-container">
+            <div class="controls">
+                <button id="block">Block</button>
+                <button id="inline-block">Inline-block</button>
+                <button id="inline">Inline</button>
+            </div>
+        </div>
+
+        <div class="monitor-container">
+            <div class="monitor">
+                <div class="screen">
+                    <div class="box" id="first-box" data-boxno="first"></div>
+                    <div class="box" id="second-box" data-boxno="second"></div>
+                    <div class="box" id="third-box" data-boxno="third"></div>
+                    <p id="text">Divy zmizely, protože prvku s {display: inline} nemůžeme manuálně změnit height nebo width.<br>
+                        Proto používáme inline-block, který nám umožní změnit výšku a šířku a zároveň zaručí, že se prvek pozičně
+                        chová jako inline prvek.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        const blockSwitch = document.getElementById("block"),
+            inlineBlockSwitch = document.getElementById("inline-block"),
+            inlineSwitch = document.getElementById("inline"),
+            div1 = document.getElementById("first-box"),
+            div2 = document.getElementById("second-box"),
+            div3 = document.getElementById("third-box"),
+            container = document.getElementById("container"),
+            text = document.getElementById("text")
+
+        blockSwitch.addEventListener("click", switchToBlock)
+        inlineBlockSwitch.addEventListener("click", switchToInlineBlock)
+        inlineSwitch.addEventListener("click", switchToInline)
+
+        function switchToBlock() {
+            div1.style.display = "block"
+            div2.style.display = "block"
+            div3.style.display = "block"
+            text.style.display = "none"
+        }
+
+        function switchToInlineBlock() {
+            div1.style.display = "inline-block"
+            div2.style.display = "inline-block"
+            div3.style.display = "inline-block"
+            text.style.display = "none"
+        }
+        function switchToInline() {
+            div1.style.display = "inline"
+            div2.style.display = "inline"
+            div3.style.display = "inline"
+            div1.style.border = 0;
+            div2.style.border = 0;
+            div3.style.border = 0;
+            text.style.display = "block"
+
+        }
+    </script>
+
+</html>

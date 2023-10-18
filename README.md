@@ -1,2 +1,3 @@
 # visualize-code
-Visualize CSS, Javascript conecpts
+
+Visualize CSS, Javascript concepts

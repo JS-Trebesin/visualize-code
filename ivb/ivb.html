@@ -23,8 +23,10 @@
                     <div class="box" id="first-box" data-boxno="first"></div>
                     <div class="box" id="second-box" data-boxno="second"></div>
                     <div class="box" id="third-box" data-boxno="third"></div>
-                    <p id="text">Divy zmizely, protože prvku s {display: inline} nemůžeme manuálně změnit height nebo width.<br>
-                        Proto používáme inline-block, který nám umožní změnit výšku a šířku a zároveň zaručí, že se prvek pozičně
+                    <p id="text">Divy zmizely, protože prvku s {display: inline} nemůžeme manuálně změnit height nebo
+                        width.<br>
+                        Proto používáme inline-block, který nám umožní změnit výšku a šířku a zároveň zaručí, že se
+                        prvek pozičně
                         chová jako inline prvek.</p>
                 </div>
             </div>
@@ -54,6 +56,9 @@
             div1.style.display = "block"
             div2.style.display = "block"
             div3.style.display = "block"
+            div1.style.borderWidth = "2px";
+            div2.style.borderWidth = "2px";
+            div3.style.borderWidth = "2px";
             text.style.display = "none"
         }
 
@@ -61,15 +66,19 @@
             div1.style.display = "inline-block"
             div2.style.display = "inline-block"
             div3.style.display = "inline-block"
+            div1.style.borderWidth = "2px";
+            div2.style.borderWidth = "2px";
+            div3.style.borderWidth = "2px";
             text.style.display = "none"
+
         }
         function switchToInline() {
             div1.style.display = "inline"
             div2.style.display = "inline"
             div3.style.display = "inline"
-            div1.style.border = 0;
-            div2.style.border = 0;
-            div3.style.border = 0;
+            div1.style.borderWidth = 0;
+            div2.style.borderWidth = 0;
+            div3.style.borderWidth = 0;
             text.style.display = "block"
 
         }

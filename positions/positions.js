@@ -17,7 +17,7 @@ resetButton.addEventListener("click", resetSettings)
 
 const selects = document.querySelectorAll(".select")
 
-selects.forEach(selectInput => {
+selects.forEach((selectInput) => {
     selectInput.addEventListener("change", () => {
         let selectedOption = selectInput.value
         switch (selectInput.id) {
@@ -34,10 +34,12 @@ selects.forEach(selectInput => {
     })
 })
 
+function stretchForSticky(position) {}
+
 const radios = document.querySelectorAll(".input-direction")
 
 const ranges = document.querySelectorAll("input[type='range']")
-ranges.forEach(rangeInpt => {
+ranges.forEach((rangeInpt) => {
     rangeInpt.addEventListener("input", () => {
         let parent = rangeInpt.parentElement
         let uncle = parent.previousElementSibling
@@ -108,14 +110,14 @@ function findWhichBoxBelongsTo(target) {
 
 const positionSwitches = document.querySelectorAll(".position-switch")
 
-positionSwitches.forEach(button => {
-    button.addEventListener("click", e => {
+positionSwitches.forEach((button) => {
+    button.addEventListener("click", (e) => {
         selectedBox = boxes[findWhichBoxBelongsTo(e.target)]
         selectedBox.style.position = e.target.innerText
     })
 })
 
-Object.values(dropdowns).forEach(dropdown => {
+Object.values(dropdowns).forEach((dropdown) => {
     dropdown
         .querySelector(".dropdown-text-icon")
         .addEventListener("click", () => {
@@ -155,13 +157,13 @@ function closeDropdown(dropdown) {
 function closeOtherDropdowns(dropdown) {
     let opened = dropdown
     let toClose = []
-    Object.values(dropdowns).forEach(droppy => {
+    Object.values(dropdowns).forEach((droppy) => {
         if (droppy === opened) {
             return
         }
         toClose.push(droppy)
     })
-    toClose.forEach(closified => {
+    toClose.forEach((closified) => {
         closeDropdown(closified)
         boxes[closified.getAttribute("data-belongs")].classList.remove(
             "selected"

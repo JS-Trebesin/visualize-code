@@ -101,6 +101,7 @@ body {
     aspect-ratio: 1/1;
     margin: 1em;
     cursor: pointer;
+    transition: all 0.2s linear;
 }
 
 #first-box {

@@ -528,9 +528,9 @@ input[type="range"]::-webkit-slider-thumb {
 
 @media (max-width: 600px) {
     .monitor {
-        height: 50%;
+        height: 60%;
         aspect-ratio: 16/9;
-        border: 5px solid black;
+        border: 5px solid bl ack;
         border-radius: 5px;
     }
 
@@ -542,11 +542,12 @@ input[type="range"]::-webkit-slider-thumb {
     .box {
         height: 35px;
         border-width: 1px;
+        margin: 7px 15px;
     }
 
     .controls-container {
         width: 100vw;
-        height: 53%;
+        height: 60%;
     }
 
     .controls {

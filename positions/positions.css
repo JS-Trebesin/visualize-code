@@ -458,11 +458,6 @@ input[type="range"]::-webkit-slider-thumb {
         height: 40%;
     }
 
-    .controls-container {
-        width: 100vw;
-        height: 60%;
-    }
-
     .monitor {
         height: 95%;
         aspect-ratio: 16/9;
@@ -472,17 +467,140 @@ input[type="range"]::-webkit-slider-thumb {
     .box {
         height: 75px;
     }
+
+    .controls-container {
+        width: 100vw;
+        height: 60%;
+    }
+
+    .controls {
+        height: 93%;
+        width: 55%;
+    }
+
+    .dropdown-header {
+        height: 3em;
+        width: 75%;
+    }
+
+    .svg-dropdown {
+        height: 1.2em;
+        right: 0%;
+    }
+
+    .select-container {
+        font-size: 0.8rem;
+        margin-top: 20px;
+        height: 14%;
+        width: 200px;
+    }
+
+    .direction-buttons {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .switch-field label,
+    .labels {
+        font-size: 0.7rem;
+        height: 30px;
+    }
+
+    .range-value {
+        font-size: 1.4rem;
+        width: 3rem;
+        padding-top: 3px;
+    }
+    .units-select {
+        font-size: 1.3rem;
+        padding: 0.2em;
+    }
+
+    input[type="range"] {
+        width: 120px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        width: 1.3rem;
+    }
 }
 
 @media (max-width: 600px) {
     .monitor {
         height: 50%;
         aspect-ratio: 16/9;
-        border: 2px solid black;
+        border: 5px solid black;
+        border-radius: 5px;
+    }
+
+    .monitor-container {
+        width: 100vw;
+        height: 40%;
     }
 
     .box {
         height: 35px;
         border-width: 1px;
+    }
+
+    .controls-container {
+        width: 100vw;
+        height: 53%;
+    }
+
+    .controls {
+        height: 99%;
+        width: 80%;
+    }
+
+    .controls::before {
+        font-size: 0.75em;
+        margin-bottom: 0.3em;
+    }
+
+    .dropdown-header {
+        height: 2.3em;
+        width: 75%;
+    }
+
+    .dropdown-header-text {
+        font-size: 0.85em;
+        margin-left: 3em;
+    }
+
+    .svg-dropdown {
+        height: 0.7em;
+        right: 0%;
+    }
+
+    .select-container {
+        font-size: 0.6rem;
+        margin-top: 10px;
+        height: 12%;
+        width: 160px;
+    }
+
+    .switch-field label,
+    .labels {
+        font-size: 0.6rem;
+        height: 30px;
+    }
+
+    .range-value {
+        font-size: 1.2rem;
+        width: 3rem;
+        padding-top: 3px;
+    }
+    .units-select {
+        font-size: 1.1rem;
+        padding: 0.2em;
+    }
+
+    input[type="range"] {
+        margin-top: 1.4rem;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        width: 1.1rem;
     }
 }

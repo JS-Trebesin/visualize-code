@@ -56,15 +56,19 @@ ranges.forEach((rangeInpt) => {
         console.log(`${rangeInpt.value}${unit}`)
         switch (direction) {
             case "top":
+                boxes[box].style.bottom = ""
                 boxes[box].style.top = `${rangeInpt.value}${unit}`
                 break
             case "bottom":
+                boxes[box].style.top = ""
                 boxes[box].style.bottom = `${rangeInpt.value}${unit}`
                 break
             case "left":
+                boxes[box].style.right = ""
                 boxes[box].style.left = `${rangeInpt.value}${unit}`
                 break
             case "right":
+                boxes[box].style.left = ""
                 boxes[box].style.right = `${rangeInpt.value}${unit}`
                 break
         }

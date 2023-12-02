@@ -16,7 +16,7 @@ const resetButton = document.getElementById("reset"),
 resetButton.addEventListener("click", resetSettings)
 
 const selects = document.querySelectorAll(".select")
-// TODO change scale for each unit
+
 selects.forEach((selectInput) => {
     selectInput.addEventListener("change", () => {
         let selectedOption = selectInput.value
@@ -29,43 +29,6 @@ selects.forEach((selectInput) => {
         switch (selectInput.id) {
             case "position-select-one":
                 boxes.first.style.position = selectedOption
-
-                // Pokus o sticky v Javascriptu but cba
-
-                // if (selectedOption === "sticky") {
-                //     boxes.first.style.position = "relative"
-
-                //     let cont = document.querySelector(".scroll-container")
-                //     // console.log("sticky offset is", stickyOffset)
-                //     initialTop = []
-                //     cont.addEventListener("scroll", () => {
-                //         if (initialTop.length < 1) {
-                //             initialTop.push(boxes.first.style.top)
-                //         }
-                //         let stickyOffset = boxes.first.offsetTop
-                //         let scrollPos = cont.scrollTop
-                //         console.log(
-                //             `scroll pos is ${scrollPos} vs sticky Offset is ${
-                //                 stickyOffset - 10
-                //             } and top is ${
-                //                 boxes.first.style.top
-                //             } vs initial top is ${initialTop[0]}`
-                //         )
-                //         if (scrollPos >= stickyOffset - 10) {
-                //             console.log("havent hit top yet I hope")
-                //             boxes.first.style.top = scrollPos + "px"
-                //             if (boxes.first.style.top === initialTop[0]) {
-                //                 boxes.first.style.top = initialTop[0]
-                //             }
-                //             boxes.first.style.transition = "all 0s linear"
-                //         } else {
-                //             console.log("I should be running")
-                //             // boxes.first.style.top = "initial"
-                //             // boxes.first.style.transition = "all 0.2s linear"
-                //         }
-                //     })
-                // }
-
                 break
             case "position-select-two":
                 boxes.second.style.position = selectedOption
@@ -238,8 +201,6 @@ Object.values(dropdowns).forEach((dropdown) => {
 
 function openDropdown(dropdown) {
     let dropdownContent = dropdown.querySelector(".dropdown-content")
-    // let dstyle = getComputedStyle(dropdownContent)
-    // let visibilityValue = dstyle.visibility
     dropdownContent.style.opacity = "1"
     dropdownContent.style.visibility = "visible"
     dropdown.style.marginBottom = "15em"
@@ -287,21 +248,6 @@ function selectBox(target) {
 }
 
 highlightSelectedBox()
-
-// stuff below no longer correct id or id at all
-// Position switch Event Listeners
-// staticSwitch.addEventListener("click", switchToStatic)
-// relativeSwitch.addEventListener("click", switchToRelative)
-// fixedSwitch.addEventListener("click", switchToFixed)
-// absoluteSwitch.addEventListener("click", switchToAbsolute)
-// stickySwitch.addEventListener("click", switchToSticky)
-
-// stuff below no longer correct id or id at all
-// Direction switch Event Listeners
-// leftInput.addEventListener("keypress", switchLeft)
-// topInput.addEventListener("keypress", switchTop)
-// rightInput.addEventListener("keypress", switchRight)
-// botInput.addEventListener("keypress", switchBot)
 
 function resetSettings() {
     boxes.first.removeAttribute("style")

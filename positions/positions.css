@@ -351,7 +351,7 @@ input[type="range"]::-webkit-slider-thumb {
     -moz-appearance: none;
     font-size: 1.6rem;
     /* background: transparent; */
-    background-color: transparent;
+    background-color: #23262e;
     color: eeeeee;
     padding: 0.2em 0.8rem;
     cursor: pointer;

@@ -16,13 +16,56 @@ const resetButton = document.getElementById("reset"),
 resetButton.addEventListener("click", resetSettings)
 
 const selects = document.querySelectorAll(".select")
-
+// TODO change scale for each unit
 selects.forEach((selectInput) => {
     selectInput.addEventListener("change", () => {
         let selectedOption = selectInput.value
+        let screen = document.querySelector(".screen")
+        if (selectedOption === "fixed" || selectedOption === "sticky") {
+            screen.style.height = "180%"
+        } else {
+            screen.style.height = "100%"
+        }
         switch (selectInput.id) {
             case "position-select-one":
                 boxes.first.style.position = selectedOption
+
+                // Pokus o sticky v Javascriptu but cba
+
+                // if (selectedOption === "sticky") {
+                //     boxes.first.style.position = "relative"
+
+                //     let cont = document.querySelector(".scroll-container")
+                //     // console.log("sticky offset is", stickyOffset)
+                //     initialTop = []
+                //     cont.addEventListener("scroll", () => {
+                //         if (initialTop.length < 1) {
+                //             initialTop.push(boxes.first.style.top)
+                //         }
+                //         let stickyOffset = boxes.first.offsetTop
+                //         let scrollPos = cont.scrollTop
+                //         console.log(
+                //             `scroll pos is ${scrollPos} vs sticky Offset is ${
+                //                 stickyOffset - 10
+                //             } and top is ${
+                //                 boxes.first.style.top
+                //             } vs initial top is ${initialTop[0]}`
+                //         )
+                //         if (scrollPos >= stickyOffset - 10) {
+                //             console.log("havent hit top yet I hope")
+                //             boxes.first.style.top = scrollPos + "px"
+                //             if (boxes.first.style.top === initialTop[0]) {
+                //                 boxes.first.style.top = initialTop[0]
+                //             }
+                //             boxes.first.style.transition = "all 0s linear"
+                //         } else {
+                //             console.log("I should be running")
+                //             // boxes.first.style.top = "initial"
+                //             // boxes.first.style.transition = "all 0.2s linear"
+                //         }
+                //     })
+                // }
+
                 break
             case "position-select-two":
                 boxes.second.style.position = selectedOption
@@ -34,7 +77,7 @@ selects.forEach((selectInput) => {
     })
 })
 
-function stretchForSticky(position) {}
+function simulateSticky() {}
 
 const radios = document.querySelectorAll(".input-direction")
 
@@ -50,6 +93,59 @@ ranges.forEach((rangeInpt) => {
         let direction = findWhichRadioIsSet(cousinInput) // top bottom left right
         let unit = cousinSelect.value
         unit = unit === "percent" ? "%" : unit
+
+        switch (unit) {
+            case "%":
+            case "vh":
+            case "vw":
+                rangeInpt.max = 100
+                rangeInpt.min = -100
+                break
+            case "px":
+                if (direction === "top" || direction === "bottom") {
+                    rangeInpt.max = document
+                        .querySelector(".monitor")
+                        .getBoundingClientRect().height
+                    rangeInpt.min = -document
+                        .querySelector(".monitor")
+                        .getBoundingClientRect().height
+                } else {
+                    rangeInpt.max = document
+                        .querySelector(".monitor")
+                        .getBoundingClientRect().width
+                    rangeInpt.min = -document
+                        .querySelector(".monitor")
+                        .getBoundingClientRect().width
+                }
+
+                break
+            case "em":
+            case "rem":
+                if (direction === "top" || direction === "bottom") {
+                    rangeInpt.max = Math.floor(
+                        document
+                            .querySelector(".monitor")
+                            .getBoundingClientRect().height / 16
+                    )
+                    rangeInpt.min = -Math.floor(
+                        document
+                            .querySelector(".monitor")
+                            .getBoundingClientRect().height / 16
+                    )
+                } else {
+                    rangeInpt.max = Math.floor(
+                        document
+                            .querySelector(".monitor")
+                            .getBoundingClientRect().width / 16
+                    )
+                    rangeInpt.min = -Math.floor(
+                        document
+                            .querySelector(".monitor")
+                            .getBoundingClientRect().width / 16
+                    )
+                }
+                break
+        }
         cousinRangeValue.innerText = rangeInpt.value
         console.log(direction)
         console.log(boxes[box])
